@@ -194,9 +194,9 @@ export default function Home() {
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { image: "https://images.unsplash.com/photo-1595514736656-26551c67f991?auto=format&fit=crop&q=80", title: "Modern Grain Storage" },
-              { image: "https://images.unsplash.com/photo-1542621334-a254cf47733d?auto=format&fit=crop&q=80", title: "Smart Greenhouse" },
-              { image: "https://images.unsplash.com/photo-1595514736656-26551c67f991?auto=format&fit=crop&q=80", title: "Processing Facility" }
+              { image: "/modern.avif", title: "Modern Grain Storage" },
+              { image: "/smart.avif", title: "Smart Greenhouse" },
+              { image: "/process.avif", title: "Processing Facility" }
             ].map((project, index) => (
               <motion.div
                 key={index}
