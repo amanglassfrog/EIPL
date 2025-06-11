@@ -73,7 +73,10 @@ export default function Home() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/eipl.mp4" type="video/mp4" />
+          <source
+            src="https://geniescareerhubbucket.lon1.cdn.digitaloceanspaces.com/eipl.mp4"
+            type="video/mp4"
+          />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50" />
         <motion.div
