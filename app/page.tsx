@@ -1,41 +1,82 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Building2, Factory, Leaf, Mail, MapPin, Phone, Tractor } from "lucide-react";
+import { Factory, Leaf, Mail, MapPin, Phone, Tractor } from "lucide-react";
 import ContactForm from "@/components/contact-form";
 import { Button } from "@/components/ui/button";
+import {
+  Home as HomeIcon,
+  Building2,
+  Hammer,
+  Wrench,
+  Paintbrush,
+  ClipboardList,
+  LifeBuoy,
+} from "lucide-react";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  transition: { duration: 0.6 },
 };
 
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
+
+const services = [
+  {
+    icon: HomeIcon,
+    title: "Customized New Construction",
+    desc: "From residential homes to large commercial facilities, our expert team delivers turnkey construction solutions with precision and attention to detail.",
+  },
+  {
+    icon: Hammer,
+    title: "Renovation & Remodeling",
+    desc: "Revamp your space—from minor upgrades to full-scale transformations—with minimal disruption and maximum craftsmanship.",
+  },
+  {
+    icon: Wrench,
+    title: "MEP Solutions",
+    desc: "We manage all mechanical, electrical, and plumbing systems to ensure safer, smarter, and energy-efficient buildings.",
+  },
+  {
+    icon: ClipboardList,
+    title: "Project Planning & Consultancy",
+    desc: "Benefit from our extensive pre‑construction services: budgeting, permitting, site surveys, and design coordination for seamless project delivery.",
+  },
+  {
+    icon: Paintbrush,
+    title: "Interior Fit‑Out & Finishing",
+    desc: "Our in‑house finishing specialists handle everything from flooring, painting, to bespoke joinery, ensuring spaces are both functional and beautiful.",
+  },
+  {
+    icon: LifeBuoy,
+    title: "Facility Maintenance & Support",
+    desc: "Post-construction support you can count on—maintenance, defect reviews, repairs, and building handover management for long-term performance.",
+  },
+];
 
 export default function Home() {
   return (
     <main className="min-h-screen  mx-auto">
       {/* Hero Section */}
       <section id="home" className="relative h-screen">
-        <video 
-          autoPlay 
-          loop 
-          muted 
+        <video
+          autoPlay
+          loop
+          muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          
         >
           <source src="/eipl.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50" />
-        <motion.div 
+        <motion.div
           initial="initial"
           animate="animate"
           variants={staggerContainer}
@@ -45,7 +86,7 @@ export default function Home() {
             variants={fadeInUp}
             className="w-2 h-20 bg-green-600 mb-8"
           />
-          <motion.h1 
+          <motion.h1
             variants={fadeInUp}
             className="text-5xl md:text-7xl font-extralight text-white mb-6 leading-tight"
           >
@@ -54,15 +95,16 @@ export default function Home() {
               Agribusiness Infrastructure
             </span>
           </motion.h1>
-          <motion.p 
+          <motion.p
             variants={fadeInUp}
             className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl font-light leading-relaxed"
           >
-            EIPL Construction specializes in creating innovative infrastructure solutions for modern agriculture and farming operations.
+            EIPL Construction specializes in creating innovative infrastructure
+            solutions for modern agriculture and farming operations.
           </motion.p>
           <motion.div variants={fadeInUp}>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-green-600 hover:bg-green-700 text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
             >
               Get Started
@@ -98,12 +140,43 @@ export default function Home() {
             <h2 className="text-5xl font-light mb-6">Our Services</h2>
             <div className="w-24 h-1 bg-green-600 mx-auto" />
           </motion.div>
-          <div className="grid md:grid-cols-3 gap-12">
+          {/* <div className="grid md:grid-cols-3 gap-12">
             {[
-              { icon: Factory, title: "Storage Facilities", desc: "State-of-the-art warehouses and silos for agricultural produce" },
-              { icon: Tractor, title: "Processing Plants", desc: "Modern facilities for food processing and agricultural products" },
-              { icon: Building2, title: "Smart Farms", desc: "Technologically advanced farming infrastructure solutions" }
+              {
+                icon: Factory,
+                title: "Storage Facilities",
+                desc: "State-of-the-art warehouses and silos for agricultural produce",
+              },
+              {
+                icon: Tractor,
+                title: "Processing Plants",
+                desc: "Modern facilities for food processing and agricultural products",
+              },
+              {
+                icon: Building2,
+                title: "Smart Farms",
+                desc: "Technologically advanced farming infrastructure solutions",
+              },
             ].map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                whileHover={{ y: -10 }}
+                className="p-8 rounded-xl bg-white border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_4px_30px_rgba(0,0,0,0.12)] transition-all duration-300"
+              >
+                <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center mb-6">
+                  <service.icon className="w-8 h-8 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-medium mb-4">{service.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{service.desc}</p>
+              </motion.div>
+            ))}
+          </div> */}
+          <div className="grid md:grid-cols-3 gap-12">
+            {services.map((service, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 40 }}
@@ -137,15 +210,19 @@ export default function Home() {
               <div className="w-12 h-1 bg-green-600 mb-8" />
               <h2 className="text-5xl font-light mb-8">About EIPL</h2>
               <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-                With over two decades of experience in agricultural infrastructure, EIPL Construction has been at the forefront of innovation in agribusiness construction.
+                With over two decades of experience in agricultural
+                infrastructure, EIPL Construction has been at the forefront of
+                innovation in agribusiness construction.
               </p>
               <p className="text-gray-600 mb-8 text-lg leading-relaxed">
-                We specialize in creating sustainable, efficient, and modern infrastructure solutions that help agricultural businesses thrive in the modern era.
+                We specialize in creating sustainable, efficient, and modern
+                infrastructure solutions that help agricultural businesses
+                thrive in the modern era.
               </p>
               <div className="grid grid-cols-2 gap-6">
                 {[
                   { icon: Leaf, text: "Sustainable Solutions" },
-                  { icon: Factory, text: "Modern Facilities" }
+                  { icon: Factory, text: "Modern Facilities" },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -169,9 +246,9 @@ export default function Home() {
               className="relative"
             >
               <div className="absolute inset-0 bg-green-600 rounded-2xl transform translate-x-4 translate-y-4" />
-              <img 
-                src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80" 
-                alt="Agricultural Facility" 
+              <img
+                src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80"
+                alt="Agricultural Facility"
                 className="relative z-10 rounded-2xl shadow-lg"
               />
             </motion.div>
@@ -196,7 +273,7 @@ export default function Home() {
             {[
               { image: "/modern.avif", title: "Modern Grain Storage" },
               { image: "/smart.avif", title: "Smart Greenhouse" },
-              { image: "/process.avif", title: "Processing Facility" }
+              { image: "/process.avif", title: "Processing Facility" },
             ].map((project, index) => (
               <motion.div
                 key={index}
@@ -207,15 +284,20 @@ export default function Home() {
                 whileHover={{ y: -10 }}
                 className="group relative overflow-hidden rounded-2xl shadow-lg"
               >
-                <img 
-                  src={project.image} 
+                <img
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
                   <div>
-                    <h3 className="text-white text-2xl font-medium mb-2">{project.title}</h3>
-                    <Button variant="outline" className="text-black border-white hover:bg-white hover:text-black">
+                    <h3 className="text-white text-2xl font-medium mb-2">
+                      {project.title}
+                    </h3>
+                    <Button
+                      variant="outline"
+                      className="text-black border-white hover:bg-white hover:text-black"
+                    >
                       View Project
                     </Button>
                   </div>
@@ -234,7 +316,7 @@ export default function Home() {
               { number: "200+", label: "Projects Completed" },
               { number: "50+", label: "Agricultural Facilities" },
               { number: "20+", label: "Years Experience" },
-              { number: "100%", label: "Client Satisfaction" }
+              { number: "100%", label: "Client Satisfaction" },
             ].map((stat, index) => (
               <motion.div
                 key={index}
@@ -248,7 +330,11 @@ export default function Home() {
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ type: "spring", stiffness: 100, delay: index * 0.2 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 100,
+                    delay: index * 0.2,
+                  }}
                   className="text-6xl font-medium mb-4"
                 >
                   {stat.number}
@@ -273,13 +359,14 @@ export default function Home() {
               <div className="w-12 h-1 bg-green-600 mb-8" />
               <h2 className="text-5xl font-light mb-8">Get in Touch</h2>
               <p className="text-gray-600 mb-12 text-lg leading-relaxed">
-                Ready to start your next agricultural infrastructure project? Contact us today for a consultation.
+                Ready to start your next agricultural infrastructure project?
+                Contact us today for a consultation.
               </p>
               <div className="space-y-6">
                 {[
                   { icon: MapPin, text: "123 Agro Park, Business District" },
                   { icon: Phone, text: "+1 (555) 123-4567" },
-                  { icon: Mail, text: "contact@eipl-construction.com" }
+                  { icon: Mail, text: "contact@eipl-construction.com" },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -321,21 +408,28 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h3 className="text-2xl font-medium mb-6">EIPL Construction</h3>
-              <p className="text-gray-400 leading-relaxed">Building sustainable agricultural infrastructure for tomorrow.</p>
+              <p className="text-gray-400 leading-relaxed">
+                Building sustainable agricultural infrastructure for tomorrow.
+              </p>
             </motion.div>
             {[
               {
                 title: "Services",
-                links: ["Storage Facilities", "Processing Plants", "Smart Farms", "Consultancy"]
+                links: [
+                  "Storage Facilities",
+                  "Processing Plants",
+                  "Smart Farms",
+                  "Consultancy",
+                ],
               },
               {
                 title: "Company",
-                links: ["About Us", "Projects", "Careers", "Contact"]
+                links: ["About Us", "Projects", "Careers", "Contact"],
               },
               {
                 title: "Connect",
-                links: ["LinkedIn", "Twitter", "Instagram", "Facebook"]
-              }
+                links: ["LinkedIn", "Twitter", "Instagram", "Facebook"],
+              },
             ].map((column, index) => (
               <motion.div
                 key={index}
@@ -348,7 +442,10 @@ export default function Home() {
                 <ul className="space-y-4">
                   {column.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
-                      <a href="#" className="text-gray-400 hover:text-green-500 transition-colors">
+                      <a
+                        href="#"
+                        className="text-gray-400 hover:text-green-500 transition-colors"
+                      >
                         {link}
                       </a>
                     </li>
