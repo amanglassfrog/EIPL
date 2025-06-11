@@ -367,9 +367,12 @@ export default function Home() {
               </p>
               <div className="space-y-6">
                 {[
-                  { icon: MapPin, text: "123 Agro Park, Business District" },
-                  { icon: Phone, text: "+1 (555) 123-4567" },
-                  { icon: Mail, text: "contact@eipl-construction.com" },
+                  {
+                    icon: MapPin,
+                    text: "B402, Brindavan Apartments, Opposite American Hospital, Krishna Nagar, Maharanipeta, Visakhapatnam, Andhra Pradesh - 530 002 ",
+                  },
+                  { icon: Phone, text: "+91 8928422800" },
+                  { icon: Mail, text: "ergoinfrabuilt@gmail.com" },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
