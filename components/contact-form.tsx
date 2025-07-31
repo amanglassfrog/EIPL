@@ -19,9 +19,9 @@ const formSchema = z.object({
 });
 
 const formFields = [
-  { name: "name", label: "Name", placeholder: "John Doe", type: "text" },
-  { name: "email", label: "Email", placeholder: "john@example.com", type: "email" },
-  { name: "phone", label: "Phone", placeholder: "+1 (555) 123-4567", type: "tel" },
+  { name: "name", label: "Name", placeholder: "Suresh Kumar", type: "text" },
+  { name: "email", label: "Email", placeholder: "suresh@example.com", type: "email" },
+  { name: "phone", label: "Phone", placeholder: "+91 9876543210", type: "tel" },
   { name: "company", label: "Company", placeholder: "Your Company", type: "text" },
   { name: "message", label: "Message", placeholder: "Tell us about your project", type: "textarea" }
 ];

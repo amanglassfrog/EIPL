@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "EIPL Construction - Agricultural Infrastructure Specialists",
   description: "EIPL Construction specializes in creating innovative infrastructure solutions for modern agriculture and farming operations.",
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({

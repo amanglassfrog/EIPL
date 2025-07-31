@@ -112,6 +112,11 @@ export default function Home() {
             <Button
               size="lg"
               className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-material-lg"
+              onClick={() => {
+                document.getElementById('services')?.scrollIntoView({ 
+                  behavior: 'smooth' 
+                });
+              }}
             >
               Get Started
             </Button>
@@ -263,19 +268,13 @@ export default function Home() {
                   alt={project.title}
                   className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-                  <div>
-                    <h3 className="text-white text-2xl font-medium mb-2">
-                      {project.title}
-                    </h3>
-                    <Button
-                      variant="outline"
-                      className="text-white border-white hover:bg-white hover:text-primary"
-                    >
-                      View Project
-                    </Button>
-                  </div>
-                </div>
+                                 <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                   <div>
+                     <h3 className="text-white text-2xl font-medium mb-2">
+                       {project.title}
+                     </h3>
+                   </div>
+                 </div>
               </motion.div>
             ))}
           </div>
@@ -438,7 +437,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.8 }}
             className="border-t border-border mt-16 pt-8 text-center text-muted-foreground"
           >
-            <p>&copy; 2024 EIPL Construction. All rights reserved.</p>
+            <p>&copy; 2025 EIPL Construction. All rights reserved.</p>
           </motion.div>
         </div>
       </footer>
