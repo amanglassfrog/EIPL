@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { Factory, Leaf, Mail, MapPin, Phone, Tractor } from "lucide-react";
 import ContactForm from "@/components/contact-form";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import {
   Home as HomeIcon,
   Building2,
@@ -13,6 +15,7 @@ import {
   ClipboardList,
   LifeBuoy,
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -63,7 +66,7 @@ const services = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen  mx-auto">
+    <main className="min-h-screen mx-auto bg-background">
       {/* Hero Section */}
       <section id="home" className="relative h-screen">
         <video
@@ -78,7 +81,7 @@ export default function Home() {
             type="video/mp4"
           />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/50" />
+        <div className="absolute inset-0 bg-black/40" />
         <motion.div
           initial="initial"
           animate="animate"
@@ -87,20 +90,20 @@ export default function Home() {
         >
           <motion.div
             variants={fadeInUp}
-            className="w-2 h-20 bg-green-600 mb-8"
+            className="w-2 h-20 bg-primary mb-8"
           />
           <motion.h1
             variants={fadeInUp}
             className="text-5xl md:text-7xl font-extralight text-white mb-6 leading-tight"
           >
             Building the Future of <br />
-            <span className="font-normal bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent">
+            <span className="font-normal text-white">
               Agribusiness Infrastructure
             </span>
           </motion.h1>
           <motion.p
             variants={fadeInUp}
-            className="text-lg md:text-xl text-gray-200 mb-8 max-w-2xl font-light leading-relaxed"
+            className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl font-light leading-relaxed"
           >
             EIPL Construction specializes in creating innovative infrastructure
             solutions for modern agriculture and farming operations.
@@ -108,7 +111,7 @@ export default function Home() {
           <motion.div variants={fadeInUp}>
             <Button
               size="lg"
-              className="bg-green-600 hover:bg-green-700 text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
+              className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-material-lg"
             >
               Get Started
             </Button>
@@ -131,7 +134,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-32 bg-white">
+      <section id="services" className="py-32 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -140,45 +143,10 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-20"
           >
-            <h2 className="text-5xl font-light mb-6">Our Services</h2>
-            <div className="w-24 h-1 bg-green-600 mx-auto" />
+            <h2 className="text-5xl font-light mb-6 text-foreground">Our Services</h2>
+            <div className="w-24 h-1 bg-primary mx-auto" />
           </motion.div>
-          {/* <div className="grid md:grid-cols-3 gap-12">
-            {[
-              {
-                icon: Factory,
-                title: "Storage Facilities",
-                desc: "State-of-the-art warehouses and silos for agricultural produce",
-              },
-              {
-                icon: Tractor,
-                title: "Processing Plants",
-                desc: "Modern facilities for food processing and agricultural products",
-              },
-              {
-                icon: Building2,
-                title: "Smart Farms",
-                desc: "Technologically advanced farming infrastructure solutions",
-              },
-            ].map((service, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                whileHover={{ y: -10 }}
-                className="p-8 rounded-xl bg-white border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_4px_30px_rgba(0,0,0,0.12)] transition-all duration-300"
-              >
-                <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center mb-6">
-                  <service.icon className="w-8 h-8 text-green-600" />
-                </div>
-                <h3 className="text-2xl font-medium mb-4">{service.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{service.desc}</p>
-              </motion.div>
-            ))}
-          </div> */}
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -187,13 +155,16 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 whileHover={{ y: -10 }}
-                className="p-8 rounded-xl bg-white border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_4px_30px_rgba(0,0,0,0.12)] transition-all duration-300"
               >
-                <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center mb-6">
-                  <service.icon className="w-8 h-8 text-green-600" />
-                </div>
-                <h3 className="text-2xl font-medium mb-4">{service.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{service.desc}</p>
+                <Card className="h-full border-border/50 shadow-material hover:shadow-material-lg transition-all duration-300 bg-card">
+                  <CardContent className="p-8">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                      <service.icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-2xl font-medium mb-4 text-foreground">{service.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{service.desc}</p>
+                  </CardContent>
+                </Card>
               </motion.div>
             ))}
           </div>
@@ -201,7 +172,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-32 bg-gray-50">
+      <section id="about" className="py-32 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -210,14 +181,14 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="w-12 h-1 bg-green-600 mb-8" />
-              <h2 className="text-5xl font-light mb-8">About EIPL</h2>
-              <p className="text-gray-600 mb-6 text-lg leading-relaxed">
+              <div className="w-12 h-1 bg-primary mb-8" />
+              <h2 className="text-5xl font-light mb-8 text-foreground">About EIPL</h2>
+              <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
                 With over two decades of experience in agricultural
                 infrastructure, EIPL Construction has been at the forefront of
                 innovation in agribusiness construction.
               </p>
-              <p className="text-gray-600 mb-8 text-lg leading-relaxed">
+              <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
                 We specialize in creating sustainable, efficient, and modern
                 infrastructure solutions that help agricultural businesses
                 thrive in the modern era.
@@ -233,10 +204,10 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: index * 0.2 }}
-                    className="flex items-center gap-3 p-4 rounded-lg bg-white shadow-sm"
+                    className="flex items-center gap-3 p-4 rounded-lg bg-background border border-border shadow-material"
                   >
-                    <item.icon className="text-green-600 w-6 h-6" />
-                    <span className="font-medium">{item.text}</span>
+                    <item.icon className="text-primary w-6 h-6" />
+                    <span className="font-medium text-foreground">{item.text}</span>
                   </motion.div>
                 ))}
               </div>
@@ -248,11 +219,11 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div className="absolute inset-0 bg-green-600 rounded-2xl transform translate-x-4 translate-y-4" />
+              <div className="absolute inset-0 bg-primary rounded-2xl transform translate-x-4 translate-y-4" />
               <img
                 src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&q=80"
                 alt="Agricultural Facility"
-                className="relative z-10 rounded-2xl shadow-lg"
+                className="relative z-10 rounded-2xl shadow-material-xl"
               />
             </motion.div>
           </div>
@@ -260,7 +231,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-32 bg-white">
+      <section id="projects" className="py-32 bg-background">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -269,8 +240,8 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-20"
           >
-            <h2 className="text-5xl font-light mb-6">Featured Projects</h2>
-            <div className="w-24 h-1 bg-green-600 mx-auto" />
+            <h2 className="text-5xl font-light mb-6 text-foreground">Featured Projects</h2>
+            <div className="w-24 h-1 bg-primary mx-auto" />
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -285,21 +256,21 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 whileHover={{ y: -10 }}
-                className="group relative overflow-hidden rounded-2xl shadow-lg"
+                className="group relative overflow-hidden rounded-2xl shadow-material hover:shadow-material-xl transition-all duration-300"
               >
                 <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
                   <div>
                     <h3 className="text-white text-2xl font-medium mb-2">
                       {project.title}
                     </h3>
                     <Button
                       variant="outline"
-                      className="text-black border-white hover:bg-white hover:text-black"
+                      className="text-white border-white hover:bg-white hover:text-primary"
                     >
                       View Project
                     </Button>
@@ -312,7 +283,7 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-32 bg-green-600 text-white">
+      <section className="py-32 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-12">
             {[
@@ -342,7 +313,7 @@ export default function Home() {
                 >
                   {stat.number}
                 </motion.div>
-                <div className="text-xl text-green-100">{stat.label}</div>
+                <div className="text-xl text-primary-foreground/80">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -350,7 +321,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-32 bg-white">
+      <section id="contact" className="py-32 bg-background">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-16">
             <motion.div
@@ -359,9 +330,9 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="w-12 h-1 bg-green-600 mb-8" />
-              <h2 className="text-5xl font-light mb-8">Get in Touch</h2>
-              <p className="text-gray-600 mb-12 text-lg leading-relaxed">
+              <div className="w-12 h-1 bg-primary mb-8" />
+              <h2 className="text-5xl font-light mb-8 text-foreground">Get in Touch</h2>
+              <p className="text-muted-foreground mb-12 text-lg leading-relaxed">
                 Ready to start your next agricultural infrastructure project?
                 Contact us today for a consultation.
               </p>
@@ -380,12 +351,12 @@ export default function Home() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: index * 0.2 }}
-                    className="flex items-center gap-4 p-4 rounded-lg bg-gray-50"
+                    className="flex items-center gap-4 p-4 rounded-lg bg-muted/50 shadow-material"
                   >
-                    <div className="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center">
-                      <item.icon className="text-green-600 w-6 h-6" />
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                      <item.icon className="text-primary w-6 h-6" />
                     </div>
-                    <span className="text-lg">{item.text}</span>
+                    <span className="text-lg text-foreground">{item.text}</span>
                   </motion.div>
                 ))}
               </div>
@@ -395,7 +366,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-white rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] p-8"
+              className="bg-card rounded-2xl shadow-material-lg border border-border p-8"
             >
               <ContactForm />
             </motion.div>
@@ -404,7 +375,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-20">
+      <footer className="bg-foreground text-foreground-foreground py-20">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-12">
             <motion.div
@@ -414,7 +385,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h3 className="text-2xl font-medium mb-6">EIPL Construction</h3>
-              <p className="text-gray-400 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 Building sustainable agricultural infrastructure for tomorrow.
               </p>
             </motion.div>
@@ -450,7 +421,7 @@ export default function Home() {
                     <li key={linkIndex}>
                       <a
                         href="#"
-                        className="text-gray-400 hover:text-green-500 transition-colors"
+                        className="text-muted-foreground hover:text-primary transition-colors"
                       >
                         {link}
                       </a>
@@ -465,7 +436,7 @@ export default function Home() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="border-t border-gray-800 mt-16 pt-8 text-center text-gray-400"
+            className="border-t border-border mt-16 pt-8 text-center text-muted-foreground"
           >
             <p>&copy; 2024 EIPL Construction. All rights reserved.</p>
           </motion.div>

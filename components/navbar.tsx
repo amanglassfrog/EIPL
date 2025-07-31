@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const menuItems = ["Home", "Services", "About", "Projects", "Contact"];
 
@@ -19,18 +20,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Handle mobile menu item click with proper navigation
   const handleMobileMenuClick = (item: string) => {
     setIsMobileMenuOpen(false);
 
-    // Small delay to allow menu to close before scrolling
     setTimeout(() => {
       const targetId = item.toLowerCase();
       const element = document.getElementById(targetId);
 
       if (element) {
-        // Calculate offset for fixed navbar
-        const navbarHeight = 80; // Adjust based on your navbar height
+        const navbarHeight = 80;
         const elementPosition = element.offsetTop - navbarHeight;
 
         window.scrollTo({
@@ -41,7 +39,6 @@ export default function Navbar() {
     }, 100);
   };
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -49,7 +46,6 @@ export default function Navbar() {
       document.body.style.overflow = "unset";
     }
 
-    // Cleanup on unmount
     return () => {
       document.body.style.overflow = "unset";
     };
@@ -60,17 +56,21 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
-      className={`fixed w-full z-50 transition-all duration-500 ${
-        isScrolled ? "bg-white shadow-lg py-3" : "bg-transparent py-6"
-      }`}
+      className={cn(
+        "fixed w-full z-50 transition-all duration-500",
+        isScrolled 
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-material" 
+          : "bg-transparent"
+      )}
     >
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between h-16">
           <motion.a
             href="/"
-            className={`text-2xl font-semibold ${
-              isScrolled ? "text-gray-900" : "text-white"
-            }`}
+            className={cn(
+              "text-2xl font-semibold transition-colors",
+              isScrolled ? "text-foreground" : "text-white"
+            )}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -83,16 +83,17 @@ export default function Navbar() {
               <motion.a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className={`${
-                  isScrolled ? "text-gray-700" : "text-white"
-                } hover:text-green-600 transition-colors relative group`}
+                className={cn(
+                  "relative group transition-colors hover:text-primary",
+                  isScrolled ? "text-muted-foreground" : "text-white"
+                )}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
               >
                 {item}
                 <motion.div
-                  className="absolute bottom-0 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"
+                  className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300"
                   whileHover={{ width: "100%" }}
                 />
               </motion.a>
@@ -102,7 +103,10 @@ export default function Navbar() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: 0.5 }}
             >
-              <Button className="bg-green-600 hover:bg-green-700 px-6 rounded-full transition-all duration-300 hover:scale-105">
+              <Button 
+                size="sm"
+                className="bg-white text-primary hover:bg-white/90 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-material"
+              >
                 <a href="#contact">Get Quote</a>
               </Button>
             </motion.div>
@@ -111,7 +115,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <motion.button
             whileTap={{ scale: 0.95 }}
-            className="md:hidden text-2xl"
+            className="md:hidden p-2 rounded-md hover:bg-accent transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <AnimatePresence mode="wait">
@@ -123,7 +127,10 @@ export default function Navbar() {
                   exit={{ rotate: 180, opacity: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <X className={isScrolled ? "text-gray-900" : "text-white"} />
+                  <X className={cn(
+                    "w-6 h-6",
+                    isScrolled ? "text-foreground" : "text-white"
+                  )} />
                 </motion.div>
               ) : (
                 <motion.div
@@ -133,9 +140,10 @@ export default function Navbar() {
                   exit={{ rotate: -180, opacity: 0 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Menu
-                    className={isScrolled ? "text-gray-900" : "text-white"}
-                  />
+                  <Menu className={cn(
+                    "w-6 h-6",
+                    isScrolled ? "text-foreground" : "text-white"
+                  )} />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -150,7 +158,7 @@ export default function Navbar() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden absolute top-full left-0 right-0 bg-white shadow-xl overflow-hidden z-40"
+              className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border shadow-material overflow-hidden"
             >
               {menuItems.map((item, index) => (
                 <motion.button
@@ -158,7 +166,7 @@ export default function Navbar() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className="block w-full text-left px-6 py-4 text-gray-700 hover:bg-gray-50 hover:text-green-600 transition-all"
+                  className="block w-full text-left px-6 py-4 text-muted-foreground hover:bg-accent hover:text-foreground transition-all"
                   onClick={() => handleMobileMenuClick(item)}
                 >
                   {item}
@@ -171,7 +179,7 @@ export default function Navbar() {
                 className="p-6"
               >
                 <Button
-                  className="w-full bg-green-600 hover:bg-green-700 transition-all duration-300"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300"
                   onClick={() => handleMobileMenuClick("contact")}
                 >
                   Get Quote

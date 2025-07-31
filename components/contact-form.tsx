@@ -62,19 +62,19 @@ export default function ContactForm() {
               name={field.name as keyof z.infer<typeof formSchema>}
               render={({ field: formField }) => (
                 <FormItem>
-                  <FormLabel className="text-gray-700">{field.label}</FormLabel>
+                  <FormLabel className="text-foreground font-medium">{field.label}</FormLabel>
                   <FormControl>
                     {field.type === "textarea" ? (
                       <Textarea
                         placeholder={field.placeholder}
-                        className="min-h-[120px] resize-none focus:ring-2 focus:ring-green-500 transition-all duration-300"
+                        className="min-h-[120px] resize-none focus:ring-2 focus:ring-primary transition-all duration-300"
                         {...formField}
                       />
                     ) : (
                       <Input
                         type={field.type}
                         placeholder={field.placeholder}
-                        className="focus:ring-2 focus:ring-green-500 transition-all duration-300"
+                        className="focus:ring-2 focus:ring-primary transition-all duration-300"
                         {...formField}
                       />
                     )}
@@ -92,7 +92,7 @@ export default function ContactForm() {
         >
           <Button
             type="submit"
-            className="w-full bg-green-600 hover:bg-green-700 text-lg py-6 rounded-lg transition-all duration-300 hover:scale-[1.02]"
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg py-6 rounded-lg transition-all duration-300 hover:scale-[1.02] shadow-material"
           >
             Send Message
           </Button>
