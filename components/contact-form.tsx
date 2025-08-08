@@ -94,7 +94,7 @@ export default function ContactForm() {
             type="submit"
             className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg py-6 rounded-lg transition-all duration-300 hover:scale-[1.02] shadow-material"
           >
-            Send Message
+            Enquire/Message
           </Button>
         </motion.div>
       </form>

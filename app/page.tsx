@@ -33,14 +33,19 @@ const staggerContainer = {
 
 const services = [
   {
+    icon: ClipboardList,
+    title: "Project Planning & Consultancy",
+    desc: "Benefit from our extensive pre‑construction services: budgeting, permitting, site surveys, and design coordination for seamless project delivery.",
+  },
+  {
     icon: HomeIcon,
     title: "Customized New Construction",
     desc: "From residential homes to large commercial facilities, our expert team delivers turnkey construction solutions with precision and attention to detail.",
   },
   {
-    icon: Hammer,
-    title: "Renovation & Remodeling",
-    desc: "Revamp your space—from minor upgrades to full-scale transformations—with minimal disruption and maximum craftsmanship.",
+    icon: Tractor,
+    title: "Agricultural Farming & Management",
+    desc: "End-to-end support for sustainable farming—covering land preparation, crop planning, cultivation, resource management, and ongoing farm maintenance to maximize yield and ensure long-term agricultural success.",
   },
   {
     icon: Wrench,
@@ -48,19 +53,14 @@ const services = [
     desc: "We manage all mechanical, electrical, and plumbing systems to ensure safer, smarter, and energy-efficient buildings.",
   },
   {
-    icon: ClipboardList,
-    title: "Project Planning & Consultancy",
-    desc: "Benefit from our extensive pre‑construction services: budgeting, permitting, site surveys, and design coordination for seamless project delivery.",
-  },
-  {
     icon: Paintbrush,
     title: "Interior Fit‑Out & Finishing",
     desc: "Our in‑house finishing specialists handle everything from flooring, painting, to bespoke joinery, ensuring spaces are both functional and beautiful.",
   },
   {
-    icon: LifeBuoy,
-    title: "Facility Maintenance & Support",
-    desc: "Post-construction support you can count on—maintenance, defect reviews, repairs, and building handover management for long-term performance.",
+    icon: Hammer,
+    title: "Renovation & Remodeling",
+    desc: "Revamp your space—from minor upgrades to full-scale transformations—with minimal disruption and maximum craftsmanship.",
   },
 ];
 
@@ -281,8 +281,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-32 bg-primary text-primary-foreground">
+      {/* Stats Section - Hidden */}
+      {/* <section className="py-32 bg-primary text-primary-foreground">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-12">
             {[
@@ -317,7 +317,7 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Contact Section */}
       <section id="contact" className="py-32 bg-background">
@@ -341,8 +341,8 @@ export default function Home() {
                     icon: MapPin,
                     text: "B402, Brindavan Apartments, Opposite American Hospital, Krishna Nagar, Maharanipeta, Visakhapatnam, Andhra Pradesh - 530 002 ",
                   },
-                  { icon: Phone, text: "+91 8928422800" },
-                  { icon: Mail, text: "ergoinfrabuilt@gmail.com" },
+                  { icon: Phone, text: "8080738225" },
+                  { icon: Mail, text: "business@ergoinfrabuilt.com" },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -375,60 +375,34 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-foreground text-foreground-foreground py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-4 gap-12">
+        <div className="container text-white mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h3 className="text-2xl font-medium mb-6">EIPL Construction</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                Building sustainable agricultural infrastructure for tomorrow.
-              </p>
+              <h4 className="text-xl font-medium mb-6">Registered Address</h4>
+              <ul className="space-y-2">
+                <li className="text-white">BCGCM India Pvt Ltd</li>
+                <li className="text-white">C-302, Saisthaan, Plot No 4/5/6</li>
+                <li className="text-white">Sector-29, Nerul East 400706</li>
+                <li className="text-white">Navi Mumbai, Maharashtra</li>
+              </ul>
             </motion.div>
-            {[
-              {
-                title: "Services",
-                links: [
-                  "Storage Facilities",
-                  "Processing Plants",
-                  "Smart Farms",
-                  "Consultancy",
-                ],
-              },
-              {
-                title: "Company",
-                links: ["About Us", "Projects", "Careers", "Contact"],
-              },
-              {
-                title: "Connect",
-                links: ["LinkedIn", "Twitter", "Instagram", "Facebook"],
-              },
-            ].map((column, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-              >
-                <h4 className="text-xl font-medium mb-6">{column.title}</h4>
-                <ul className="space-y-4">
-                  {column.links.map((link, linkIndex) => (
-                    <li key={linkIndex}>
-                      <a
-                        href="#"
-                        className="text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        {link}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h4 className="text-xl font-medium mb-6">Contact Information</h4>
+              <ul className="space-y-2">
+                <li className="text-white">Email ID: business@ergoinfrabuilt.com</li>
+                <li className="text-white">Mobile No: 8080738225</li>
+              </ul>
+            </motion.div>
           </div>
           <motion.div
             initial={{ opacity: 0 }}

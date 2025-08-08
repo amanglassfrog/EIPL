@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const menuItems = ["Home", "Services", "About", "Projects", "Contact"];
+const menuItems = ["Home", "Services", "Projects", "About", "Contact Us"];
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,13 +68,13 @@ export default function Navbar() {
           <motion.a
             href="/"
             className={cn(
-              "text-2xl font-semibold transition-colors",
+              "text-2xl font-bold tracking-wide transition-colors",
               isScrolled ? "text-foreground" : "text-white"
             )}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            EIPL
+            <span style={{ color: '#FFA07A', fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>ERGO</span><span style={{ color: '#6B7280', fontFamily: 'Arial, sans-serif', fontWeight: 'bold' }}>INFRA</span>
           </motion.a>
 
           {/* Desktop Menu */}
@@ -98,18 +98,6 @@ export default function Navbar() {
                 />
               </motion.a>
             ))}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, delay: 0.5 }}
-            >
-              <Button 
-                size="sm"
-                className="bg-white text-primary hover:bg-white/90 px-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-material"
-              >
-                <a href="#contact">Get Quote</a>
-              </Button>
-            </motion.div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -172,19 +160,6 @@ export default function Navbar() {
                   {item}
                 </motion.button>
               ))}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: 0.5 }}
-                className="p-6"
-              >
-                <Button
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground transition-all duration-300"
-                  onClick={() => handleMobileMenuClick("contact")}
-                >
-                  Get Quote
-                </Button>
-              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
