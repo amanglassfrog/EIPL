@@ -77,7 +77,7 @@ export default function Home() {
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source
-            src="https://geniescareerhubbucket.lon1.cdn.digitaloceanspaces.com/eipl.mp4"
+            src="https://geniescareerhubbucket.lon1.cdn.digitaloceanspaces.com/eipl-hero.mp4"
             type="video/mp4"
           />
         </video>
@@ -94,19 +94,21 @@ export default function Home() {
           />
           <motion.h1
             variants={fadeInUp}
-            className="text-5xl md:text-7xl font-extralight text-white mb-6 leading-tight"
+            className="text-6xl md:text-4xl font-extralight text-white mb-6 leading-tight"
           >
-            Building the Future of <br />
-            <span className="font-normal text-white">
-              Agribusiness Infrastructure
+            EIPL are Turnkey Construction Company <br /><br/>
+            <span className="font-normal mb-4 text-white">
+            for your Dream Projects in <br /><br/>
+            </span>
+            <span  className="text-6xl md:text-4xl font-extralight text-white mb-6 leading-tight">
+            Residential, Commercial, Industrial Building Construction
             </span>
           </motion.h1>
           <motion.p
             variants={fadeInUp}
-            className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl font-light leading-relaxed"
-          >
-            EIPL Construction specializes in creating innovative infrastructure
-            solutions for modern agriculture and farming operations.
+            className="text-sm md:text-xl text-white/90 mb-8 max-w-2xl font-light leading-relaxed"
+          ><br/><br/>
+            EIPL network of construction professionals rise to the challenges associated with a diverse buildings portfolio, bringing added value to every educational, institutional, residential, commercial and Industrial construction project. <br />EIPL offers substantial construction experience, competitive pricing, integrity and a commitment to your project that is supported by a foundation of quality and workplace safety.
           </motion.p>
           <motion.div variants={fadeInUp}>
             <Button
@@ -330,10 +332,9 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <div className="w-12 h-1 bg-primary mb-8" />
-              <h2 className="text-5xl font-light mb-8 text-foreground">Get in Touch</h2>
+              <h2 className="text-5xl font-light mb-8 text-foreground">Contact Us</h2>
               <p className="text-muted-foreground mb-12 text-lg leading-relaxed">
-                Ready to start your next agricultural infrastructure project?
-                Contact us today for a consultation.
+              
               </p>
               <div className="space-y-6">
                 {[
@@ -385,7 +386,7 @@ export default function Home() {
             >
               <h4 className="text-xl font-medium mb-6">Registered Address</h4>
               <ul className="space-y-2">
-                <li className="text-white">BCGCM India Pvt Ltd</li>
+                <li className="text-white">ERGONOMIC INFRABUILT PRIVATE LIMITED </li>
                 <li className="text-white">C-302, Saisthaan, Plot No 4/5/6</li>
                 <li className="text-white">Sector-29, Nerul East 400706</li>
                 <li className="text-white">Navi Mumbai, Maharashtra</li>
