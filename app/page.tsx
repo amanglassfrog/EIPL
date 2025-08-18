@@ -398,10 +398,10 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h4 className="text-xl font-medium mb-6">Contact Information</h4>
+              <h4 className="text-xl font-medium mb-6"><p style={{ marginLeft: '200px' }}>Contact Information</p></h4>
               <ul className="space-y-2">
-                <li className="text-white">Email ID: business@ergoinfrabuilt.com</li>
-                <li className="text-white">Mobile No: 8080738225</li>
+                <li className="text-white"><p style={{ marginLeft: '200px' }}> Email ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: business@ergoinfrabuilt.com</p></li>
+                <li className="text-white"><p style={{ marginLeft: '200px' }}>Mobile No&nbsp;&nbsp;: 8080738225</p></li>
               </ul>
             </motion.div>
           </div>
