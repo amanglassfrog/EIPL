@@ -5,7 +5,7 @@ import { Factory, Leaf, Mail, MapPin, Phone, Tractor } from "lucide-react";
 import ContactForm from "@/components/contact-form";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+//import { Badge } from "@/components/ui/badge";
 import {
   Home as HomeIcon,
   Building2,
@@ -90,38 +90,38 @@ export default function Home() {
         >
           <motion.div
             variants={fadeInUp}
-            className="w-2 h-20 bg-primary mb-8"
+            className="w-2 h-10 bg-primary mb-8"
           />
           <motion.h1
             variants={fadeInUp}
-            className="text-6xl md:text-4xl font-extralight text-white mb-6 leading-tight"
+            className="text-6xl md:text-5xl font-extralight text-white mb-6 leading-tight"
           >
-            EIPL are Turnkey Construction Company <br /><br/>
+            EIPL are Turnkey EPC Contractors <br /><br/>
             <span className="font-normal mb-4 text-white">
             for your Dream Projects in <br /><br/>
             </span>
             <span  className="text-6xl md:text-4xl font-extralight text-white mb-6 leading-tight">
-            Residential, Commercial, Industrial Building Construction
+            Residential, Commercial, Industrial, &  Agricultural Infrastructure Construction
             </span>
           </motion.h1>
           <motion.p
             variants={fadeInUp}
-            className="text-sm md:text-xl text-white/90 mb-8 max-w-2xl font-light leading-relaxed"
+            className="text-sm md:text-g text-white/90 mb-8 max-w-2xl font-light leading-relaxed"
           ><br/><br/>
-            EIPL network of construction professionals rise to the challenges associated with a diverse buildings portfolio, bringing added value to every educational, institutional, residential, commercial and Industrial construction project. <br />EIPL offers substantial construction experience, competitive pricing, integrity and a commitment to your project that is supported by a foundation of quality and workplace safety.
-          </motion.p>
+            EIPL is a network of construction professionals rise to the challenges associated with a diverse buildings portfolio, bringing added value to every educational, institutional, residential, commercial, Industrial & Agricultural Infrastructure construction projects.<br/> <br />EIPL offers substantial construction experience, competitive pricing, integrity and a commitment to your project that is supported by a foundation of quality and workplace safety.
+          </motion.p><br/>
           <motion.div variants={fadeInUp}>
-            <Button
+            {/* <Button
               size="lg"
               className="bg-white text-primary hover:bg-white/90 text-lg px-8 py-6 rounded-lg transition-all duration-300 hover:scale-105 shadow-material-lg"
               onClick={() => {
                 document.getElementById('services')?.scrollIntoView({ 
-                  behavior: 'smooth' 
+                  behavior: 'smooth' <
                 });
               }}
             >
               Get Started
-            </Button>
+            </Button> */}
           </motion.div>
         </motion.div>
         <motion.div
@@ -400,8 +400,8 @@ export default function Home() {
             >
               <h4 className="text-xl font-medium mb-6"><p style={{ marginLeft: '200px' }}>Contact Information</p></h4>
               <ul className="space-y-2">
-                <li className="text-white"><p style={{ marginLeft: '200px' }}> Email ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: business@ergoinfrabuilt.com</p></li>
-                <li className="text-white"><p style={{ marginLeft: '200px' }}>Mobile No&nbsp;&nbsp;: 8080738225</p></li>
+                <li className="text-white"><p style={{ marginLeft: '200px' }}> Email ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span style={{ marginLeft: '40px' }}>business@ergoinfrabuilt.com</span></p></li>
+                <li className="text-white"><p style={{ marginLeft: '200px' }}>Mobile No&nbsp;&nbsp;:<span style={{ marginLeft: '40px' }}>8080738225</span></p></li>
               </ul>
             </motion.div>
           </div>
